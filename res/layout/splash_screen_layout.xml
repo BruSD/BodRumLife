@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+
+    >
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        >
+
+            <TextView
+                android:id="@+id/head_text_splash_screen_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/head_text_splash"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+
+                />
+
+            <TextView
+                android:id="@+id/head_text_splash_red_screen_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/red_head_text_splash"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ff00"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/head_text_splash_publ_screen_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/publi_head_text_splash"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+
+                />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/bottum_text_splash_screen"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/bottum_text_splash"
+        android:gravity="center"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        />
+
+</RelativeLayout>

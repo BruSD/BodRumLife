@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">BodrumLife</string>
+
+
+<!-- Splash Screen Content-->
+    <string name="head_text_splash">budrum</string>
+
+    <string name="red_head_text_splash">life</string>
+
+    <string name="publi_head_text_splash">\u0020 publication&#174;</string>
+
+    <string name="bottum_text_splash">BODRUM\'A DAIR \r\nNEVARSA</string>
 </resources>

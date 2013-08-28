@@ -3,7 +3,7 @@ package com.bodrumlife.mobilesoft365;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.bodrumlife.mobilesoft365.AsyncTask.AsyncTaskGetAllEvent;
+
 
 public class MyActivity extends Activity {
     /**
