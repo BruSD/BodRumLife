@@ -9,5 +9,10 @@
             android:layout_height="wrap_content"
             android:text="Hello World, MyActivity"
             />
+
+    <FrameLayout
+        android:id="@+id/frame_bod_rum"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
 </LinearLayout>
 
