@@ -54,5 +54,6 @@ public class SplashScreenFragment extends Fragment {
         else {
         new AsyncTaskFourItems(getActivity()).execute(String.valueOf(AsyncTaskEnumeration.TypeOfAsyncTask.Events.getValue()));
        }
+
     }
 }
