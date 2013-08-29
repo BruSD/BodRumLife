@@ -2,9 +2,11 @@ package com.bodrumlife.mobilesoft365.AsyncTask;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.graphics.drawable.Drawable;
+
 import android.os.AsyncTask;
-import android.widget.ListView;
+
+
+import com.bodrumlife.mobilesoft365.MyActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -110,6 +112,13 @@ public class AsyncTaskGetAllEvent extends AsyncTask<Void, Void, List<HashMap<Str
     @Override
     protected void onPostExecute(List<HashMap<String, ?>> hashMaps) {
         super.onPostExecute(hashMaps);
-        dialog.dismiss();
+
+        if (dialog != null && dialog.isShowing())
+            dialog.dismiss();
+
+        if (activity != null && activity instanceof MyActivity) {
+            ((MyActivity)activity).comitMainPlateFragment();
+
+        }
     }
 }

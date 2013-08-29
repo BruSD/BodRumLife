@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:layout_margin="5dp"
+        android:layout_marginLeft="10dp"
+        >
+                <ImageView
+                    android:id="@+id/bodrum_logo_image_main_plate_layout"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_weight="4"
+                    android:src="@drawable/bodrum_launcher"/>
+                <RelativeLayout
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_weight="5"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bodrum_launcher"
+
+                    >
+                    <TextView
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:gravity="right"
+                        android:text="шось там"/>
+                </RelativeLayout>
+
+                <ListView
+                    android:id="@+id/list_bodrum_event"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_weight="3"
+                    />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:layout_margin="5dp"
+        >
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/bodrum_launcher"
+
+            >
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+
+                android:text="шось там"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/bodrum_launcher"
+
+            >
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+
+                android:text="шось там"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/bodrum_launcher"
+
+            >
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+
+                android:text="шось там"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/bodrum_launcher"
+
+            >
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+
+                android:text="шось там"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/bodrum_launcher"
+
+            >
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:text="шось там"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/bodrum_launcher"
+
+            >
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:text="шось там"/>
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
