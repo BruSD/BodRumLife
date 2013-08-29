@@ -10,12 +10,10 @@ public class AsyncTaskEnumeration {
         Restaurants(70),
         BarsCafe(71),
         Shopping(76),
-
         Events(1),
         Beach(103),
         Concerts(92),
         Gozumuze(88);
-
 
         private int mValue;
 

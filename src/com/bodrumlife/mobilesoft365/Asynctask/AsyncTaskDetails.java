@@ -1,9 +1,5 @@
 package com.bodrumlife.mobilesoft365.AsyncTask;
 
-/**
- * Created by Sofia on 8/29/13.
- */
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -19,21 +15,21 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class AsyncTaskFourItems extends AsyncTask<String, Void, List<HashMap<String, ?>>> {
-
+/**
+ * Created by Sofia on 8/29/13.
+ */
+public class AsyncTaskDetails extends AsyncTask<String, Void, JSONObject> {
     private Activity activity;
     ProgressDialog dialog;
     String result = "";
-    JSONArray jsonObject = null;
 
-    public AsyncTaskFourItems(Activity activity){
+    public AsyncTaskDetails(Activity activity){
         this.activity = activity;
-
     }
+
     @Override
     protected void onPreExecute()
     {
@@ -42,24 +38,21 @@ public class AsyncTaskFourItems extends AsyncTask<String, Void, List<HashMap<Str
         dialog.setMessage("Loading list");
         dialog.show();
     }
-
     @Override
-    protected List <HashMap<String,?>>  doInBackground(String... params) {
-
-        List <HashMap<String,?>> list1 = new ArrayList<HashMap<String,?>>();
+    protected JSONObject doInBackground(String... params) {
         URL url = null;
-        JSONArray mArray=null;
-
-
+        JSONObject jsonO=null;
+        if(params.length<1){
+            return jsonO;
+        }
         try {
-            url = new URL("http://bodrumlife.com/service/index.php?cat="+params[0]);
+            url = new URL("http://bodrumlife.com/service/index.php?id="+params[0]+"&cat="+params[1]);
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            return jsonO;
         }
         try{
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
-
                 InputStream stream = conn.getInputStream();
                 BufferedReader rd = new BufferedReader(new InputStreamReader(stream));
                 StringBuilder builder = new StringBuilder();
@@ -69,39 +62,29 @@ public class AsyncTaskFourItems extends AsyncTask<String, Void, List<HashMap<Str
                     builder.append(line);
                 }
                 result=builder.toString();
-                mArray = new JSONArray(result);
-
-                for (int i = 0; i < mArray.length(); i++) {
-                    JSONObject object = mArray.getJSONObject(i);
-                    String id = object.getString("Id");
-                    String name = object.getString("Name");
-                    String details = object.getString("Details");
-                    String image = object.getString("Image");
-
-
-                    HashMap<String,Object> item;
-                    item = new HashMap <String, Object >();
-                    item.put("Id",id);
-                    item.put("Name", name);
-                    item.put("Details",details);
-                    item.put("Image",image);
-                    list1.add(item);
-                }
+                jsonO = new JSONObject(result);
+                    String id = jsonO.getString("Id");
+                    String name = jsonO.getString("Name");
+                    String image=jsonO.getString("Image");
+                    String addres=jsonO.getString("Addres");
+                    String email=jsonO.getString("Email");
+                    String website=jsonO.getString("Website");
+                    String website2=jsonO.getString("Website2");
+                    String map=jsonO.getString("Map");
+                    String detail = jsonO.getString("Detail");
             }
         }
 
         catch (IOException e) {
-
             e.printStackTrace();
-        } catch (JSONException e) {
+           }
+        catch (JSONException e) {
             e.printStackTrace();
         }
-
-         return list1;
+              return null;
     }
-
     @Override
-    protected void onPostExecute(List<HashMap<String, ?>> hashMaps) {
+    protected void onPostExecute( JSONObject hashMaps) {
         super.onPostExecute(hashMaps);
         if(dialog!=null && dialog.isShowing())
             dialog.dismiss();

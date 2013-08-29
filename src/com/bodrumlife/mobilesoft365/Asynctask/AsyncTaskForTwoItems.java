@@ -87,14 +87,6 @@ public class AsyncTaskForTwoItems extends AsyncTask<String, Void, List<HashMap<S
             e.printStackTrace();
         }
 
-        try {
-
-            jsonObject=new JSONArray(result);
-
-        }
-        catch (JSONException e) {
-            e.printStackTrace();
-        }
         return list1;
     }
 
