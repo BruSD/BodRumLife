@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.method.CharacterPickerDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,9 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.bodrumlife.mobilesoft365.DataBodRumLife.DataStorage;
+import com.bodrumlife.mobilesoft365.MyActivity;
 import com.bodrumlife.mobilesoft365.R;
+import com.google.android.gms.plus.PlusOneButton;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -40,13 +43,16 @@ public class MainPlateFragment extends Fragment {
     private RelativeLayout wheareToGoRL;
     private static int listHigth;
     private View v;
+    private ImageView imageLogoBodRum;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         parentActivity = getActivity();
         v = LayoutInflater.from(parentActivity).inflate(R.layout.fragment_main_plate_layout, null);
         listOfEvents = (ListView) v.findViewById(R.id.list_bodrum_event);
-
+        imageLogoBodRum = (ImageView)v.findViewById(R.id.bodrum_logo_image_main_plate_layout);
+        
+        imageLogoBodRum.setOnClickListener(new startAboutBodRumFragment() );
         wheareToGoRL = (RelativeLayout)v.findViewById(R.id.wheare_to_go_main_plate_fragmet);
 
         return v;
@@ -55,7 +61,7 @@ public class MainPlateFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        listHigth = v.getHeight() - wheareToGoRL.getBottom();
+        listHigth = v.getMeasuredHeight() - wheareToGoRL.getHeight();
         EventAdapter adapter = new EventAdapter(parentActivity,
                 createShortEventList(),
                 R.layout.iteme_for_event_main_plate_list,
@@ -76,6 +82,7 @@ public class MainPlateFragment extends Fragment {
 
         return items;
     }
+
 
     private class EventAdapter extends SimpleAdapter {
         private Context context;
@@ -176,13 +183,22 @@ public class MainPlateFragment extends Fragment {
             }
 
             Bitmap bmp = null;
-            try {
-                bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            try {
+//               // bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
             return bmp;
         }
 
+    }
+    
+    
+    class startAboutBodRumFragment implements View.OnClickListener{
+
+        @Override
+        public void onClick(View view) {
+            ((MyActivity)parentActivity).comitAboutBodRum();
+        }
     }
 }

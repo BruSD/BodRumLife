@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Window;
 
+import com.bodrumlife.mobilesoft365.FragmentBodRumLife.AboutBodRumFragment;
 import com.bodrumlife.mobilesoft365.FragmentBodRumLife.MainPlateFragment;
 import com.bodrumlife.mobilesoft365.FragmentBodRumLife.SplashScreenFragment;
 
@@ -38,11 +39,18 @@ public class MyActivity extends FragmentActivity {
     }
 
     public void comitMainPlateFragment(){
-         ft = getSupportFragmentManager().beginTransaction();
+        ft = getSupportFragmentManager().beginTransaction();
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.replace(R.id.frame_bod_rum, new MainPlateFragment());
         ft.commit();
 
+    }
+
+    public void comitAboutBodRum(){
+        ft = getSupportFragmentManager().beginTransaction();
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.replace(R.id.frame_bod_rum, new AboutBodRumFragment());
+        ft.commit();
     }
 
 
