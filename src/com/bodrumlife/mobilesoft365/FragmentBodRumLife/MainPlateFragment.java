@@ -3,17 +3,27 @@ package com.bodrumlife.mobilesoft365.FragmentBodRumLife;
 
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.bodrumlife.mobilesoft365.DataBodRumLife.DataStorage;
 import com.bodrumlife.mobilesoft365.R;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,12 +37,17 @@ public class MainPlateFragment extends Fragment {
 
     private Activity parentActivity = null;
     private ListView listOfEvents;
+    private RelativeLayout wheareToGoRL;
+    private static int listHigth;
+    private View v;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         parentActivity = getActivity();
-        View v = LayoutInflater.from(parentActivity).inflate(R.layout.fragment_main_plate_layout, null);
+        v = LayoutInflater.from(parentActivity).inflate(R.layout.fragment_main_plate_layout, null);
         listOfEvents = (ListView) v.findViewById(R.id.list_bodrum_event);
+
+        wheareToGoRL = (RelativeLayout)v.findViewById(R.id.wheare_to_go_main_plate_fragmet);
 
         return v;
     }
@@ -40,7 +55,13 @@ public class MainPlateFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        //SimpleAdapter adapter = new SimpleAdapter(parentActivity,createShortEventList(), );
+        listHigth = v.getHeight() - wheareToGoRL.getBottom();
+        EventAdapter adapter = new EventAdapter(parentActivity,
+                createShortEventList(),
+                R.layout.iteme_for_event_main_plate_list,
+                new String[]{"Name","Details"},
+                new int[]{R.id.title_of_event, R.id.details_of_event } );
+        listOfEvents.setAdapter(adapter);
     }
     private List<Map<String, ?>> createShortEventList(){
         List<Map<String, ?>> items = new ArrayList<Map<String, ?>>();
@@ -56,4 +77,112 @@ public class MainPlateFragment extends Fragment {
         return items;
     }
 
+    private class EventAdapter extends SimpleAdapter {
+        private Context context;
+        private List<? extends Map<String, ?>> data;
+        private int resource;
+
+
+        public EventAdapter(Context context, List<? extends Map<String, ?>> data, int resource, String[] from, int[] to) {
+            super(context, data, resource, from, to);
+            this.context = context;
+            this.data = data;
+            this.resource = resource;
+            }
+
+            /**
+             * <p>Count of items in the data set represented by this Adapter</p>
+             * @return How many items are in the data set represented by this Adapter
+             */
+            @Override
+            public int getCount() {
+                return data.size();
+            }
+
+            /**
+             * <p>Get the data item associated with the specified position in the data set.</p>
+             * @param position Position of the item whose data we want within the adapter's data set.
+             * @return The data at the specified position
+             */
+            @Override
+            public Object getItem(int position) {
+                return null;
+            }
+
+            /**
+             * <p>Get the row id associated with the specified position in the list.</p>
+             * @param position The position of the item within the adapter's data set whose row id we want
+             * @return The id of the item at the specified position
+             */
+            @Override
+            public long getItemId(int position) {
+                return position;
+            }
+
+            public class ViewHolder {
+                TextView titleOfEvent;
+                TextView descriptionOfEvent;
+                ImageView imageOfEvent;
+
+            }
+
+            /**
+             * <p>Get a View that displays the data at the specified position in the data set.</p>
+             * @param position   The position of the item within the adapter's data set of the item whose view we want
+             * @param convertView The old view to reuse, if possible. Note: You should check that this view is non-null and of an appropriate type before using. If it is not possible to convert this view to display the correct data, this method can create a new view
+             * @param parent The parent that this view will eventually be attached to
+             * @return  A View corresponding to the data at the specified position
+             */
+            @Override
+            public View getView(final int position, View convertView, ViewGroup parent) {
+                final ViewHolder holder;
+
+                LayoutInflater li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = li.inflate(resource, parent, false);
+                ViewGroup.LayoutParams params = convertView.getLayoutParams();
+                params.height = listHigth/5;
+
+                convertView.setLayoutParams(params);
+
+                holder = new ViewHolder();
+
+                holder.titleOfEvent = (TextView)convertView.findViewById(R.id.title_of_event);
+                holder.titleOfEvent.setText(data.get(position).get("Name").toString());
+                
+                holder.descriptionOfEvent = (TextView)convertView.findViewById(R.id.details_of_event);
+                holder.descriptionOfEvent.setText(data.get(position).get("Details").toString());
+                
+                holder.imageOfEvent = (ImageView)convertView.findViewById(R.id.image_of_evante);
+                
+                String url = "http://www.nereyegidilir.com/Events/gallery/image/" + data.get(position).get("Image").toString();
+                Bitmap bmp = getImageFromWeb(url);
+                if( bmp != null){
+
+                    //holder.imageOfEvent.setImageBitmap(bmp);
+                    //holder.imageOfEvent.setMaxHeight(listHigth/5);
+                }
+
+
+                return convertView;
+            }
+
+        
+        private Bitmap getImageFromWeb(String imageURl){
+            URL url = null;
+            try {
+                url = new URL(imageURl);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+
+            Bitmap bmp = null;
+            try {
+                bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return bmp;
+        }
+
+    }
 }
