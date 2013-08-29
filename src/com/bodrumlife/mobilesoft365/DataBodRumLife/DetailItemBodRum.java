@@ -19,5 +19,4 @@ public class DetailItemBodRum {
     private URL item_website;
     private URL item_support_website;
     private LatLng item_location = new LatLng(0,0);
-
 }

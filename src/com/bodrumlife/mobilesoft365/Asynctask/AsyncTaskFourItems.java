@@ -8,6 +8,9 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
+import com.bodrumlife.mobilesoft365.DataBodRumLife.DataStorage;
+import com.bodrumlife.mobilesoft365.MyActivity;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -103,7 +106,20 @@ public class AsyncTaskFourItems extends AsyncTask<String, Void, List<HashMap<Str
     @Override
     protected void onPostExecute(List<HashMap<String, ?>> hashMaps) {
         super.onPostExecute(hashMaps);
+
+        saveListInDataStoreg(hashMaps);
+
         if(dialog!=null && dialog.isShowing())
             dialog.dismiss();
+
+        if (activity != null && activity instanceof MyActivity) {
+            ((MyActivity)activity).comitMainPlateFragment();
+
+        }
+    }
+
+    private void saveListInDataStoreg(List<HashMap<String, ?>> listToDataStoreg){
+
+        DataStorage.setEventList(listToDataStoreg);
     }
 }

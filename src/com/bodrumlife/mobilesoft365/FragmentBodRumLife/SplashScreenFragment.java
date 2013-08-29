@@ -9,7 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bodrumlife.mobilesoft365.AsyncTask.AsyncTaskGetAllEvent;
+import com.bodrumlife.mobilesoft365.AsyncTask.AsyncTaskEnumeration;
+import com.bodrumlife.mobilesoft365.AsyncTask.AsyncTaskFourItems;
 import com.bodrumlife.mobilesoft365.R;
 
 
@@ -31,6 +32,6 @@ public class SplashScreenFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        new AsyncTaskGetAllEvent(getActivity()).execute();
+        new AsyncTaskFourItems(getActivity()).execute(String.valueOf(AsyncTaskEnumeration.TypeOfAsyncTask.Events.getValue()));
     }
 }

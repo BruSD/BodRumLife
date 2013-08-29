@@ -3,6 +3,9 @@ package com.bodrumlife.mobilesoft365;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
+import android.view.Window;
 
 import com.bodrumlife.mobilesoft365.FragmentBodRumLife.MainPlateFragment;
 import com.bodrumlife.mobilesoft365.FragmentBodRumLife.SplashScreenFragment;
@@ -12,6 +15,7 @@ public class MyActivity extends FragmentActivity {
     /**
      * Called when the activity is first created.
      */
+    private  FragmentTransaction ft;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,21 +24,21 @@ public class MyActivity extends FragmentActivity {
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         setContentView(R.layout.main);
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.replace(R.id.frame_bod_rum, new SplashScreenFragment());
+        ft.commit();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-//        AsyncTaskForTwoItems asyncTaskForTwoItems = new AsyncTaskForTwoItems(this);
-//        int value=AsyncTaskEnumeration.TypeOfAsyncTask.Hotels.getValue();
-//        asyncTaskForTwoItems.execute(String.valueOf(value));
-        AsyncTaskDetails asyncTaskForFourItems = new AsyncTaskDetails(this);
-        int valeu=AsyncTaskEnumeration.TypeOfAsyncTask.Concerts.getValue();
-        asyncTaskForFourItems.execute("2245",String.valueOf(valeu));
+
+
     }
 
     public void comitMainPlateFragment(){
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+         ft = getSupportFragmentManager().beginTransaction();
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.replace(R.id.frame_bod_rum, new MainPlateFragment());
         ft.commit();

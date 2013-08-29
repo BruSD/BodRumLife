@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
+import com.bodrumlife.mobilesoft365.DataBodRumLife.DataStorage;
+import com.bodrumlife.mobilesoft365.MyActivity;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -95,5 +98,9 @@ public class AsyncTaskForTwoItems extends AsyncTask<String, Void, List<HashMap<S
         super.onPostExecute(hashMaps);
         if(dialog!=null && dialog.isShowing())
             dialog.dismiss();
+
+
     }
+
+
 }

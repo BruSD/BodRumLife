@@ -4,7 +4,7 @@ package com.bodrumlife.mobilesoft365.AsyncTask;
  * Created by Sofia on 8/28/13.
  */
 public class AsyncTaskEnumeration {
-    public enum TypeOfAsyncTask
+    public static enum TypeOfAsyncTask
     {
         Hotels(73),
         Restaurants(70),
