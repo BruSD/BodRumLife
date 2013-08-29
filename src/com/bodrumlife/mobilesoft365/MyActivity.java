@@ -30,10 +30,6 @@ public class MyActivity extends FragmentActivity {
     protected void onStart() {
         super.onStart();
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-        ft.replace(R.id.frame_bod_rum, new SplashScreenFragment());
-        ft.commit();
 
     }
 
