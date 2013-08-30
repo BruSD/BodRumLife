@@ -3,11 +3,14 @@ package com.bodrumlife.mobilesoft365;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.ListFragment;
 import android.view.Window;
 
 import com.bodrumlife.mobilesoft365.FragmentBodRumLife.AboutBodRumFragment;
+import com.bodrumlife.mobilesoft365.FragmentBodRumLife.ListBodRumFragment;
 import com.bodrumlife.mobilesoft365.FragmentBodRumLife.MainPlateFragment;
 import com.bodrumlife.mobilesoft365.FragmentBodRumLife.SplashScreenFragment;
 import com.bodrumlife.mobilesoft365.AsyncTask.AsyncTaskDetails;
@@ -52,6 +55,19 @@ public class MyActivity extends FragmentActivity {
         ft = getSupportFragmentManager().beginTransaction();
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.replace(R.id.frame_bod_rum, new AboutBodRumFragment());
+        ft.commit();
+    }
+
+    public void comitListBodRumFragment(int listId){
+
+        Fragment fragment = new ListBodRumFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("catID", listId);
+        fragment.setArguments(bundle);
+
+        ft = getSupportFragmentManager().beginTransaction();
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.replace(R.id.frame_bod_rum, fragment);
         ft.commit();
     }
 

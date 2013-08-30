@@ -59,91 +59,122 @@
         android:layout_margin="5dp"
         >
         <RelativeLayout
+            android:id="@+id/concert_button_main_plate"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_margin="5dp"
+            android:layout_weight="1"
             android:background="@drawable/bodrum_launcher"
 
             >
             <TextView
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-
-                android:text="шось там"/>
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:textColor="#69d1f5"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/concert_button_text_main_plate"
+                />
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/shoping_button_main_plate"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_margin="5dp"
+            android:layout_weight="1"
             android:background="@drawable/bodrum_launcher"
 
             >
             <TextView
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-
-                android:text="шось там"/>
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:layout_margin="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/shoping_button_text_main_plate"/>
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/bar_cafe_button_main_plate"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_margin="5dp"
+            android:layout_weight="1"
+
             android:background="@drawable/bodrum_launcher"
 
             >
             <TextView
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-
-                android:text="шось там"/>
+                android:textStyle="bold"
+                android:textColor="#ffc900"
+                android:layout_margin="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/bar_cafe_button_text_main_plate"/>
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/belderel_button_main_plate"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_margin="5dp"
+            android:layout_weight="1"
+
             android:background="@drawable/bodrum_launcher"
 
             >
             <TextView
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-
-                android:text="шось там"/>
+                android:textStyle="bold"
+                android:textColor="#ffe561"
+                android:gravity="bottom"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/belderel_button_text_main_plate"/>
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/hotel_button_main_plate"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_margin="5dp"
+            android:layout_weight="1"
+
             android:background="@drawable/bodrum_launcher"
 
             >
             <TextView
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:text="шось там"/>
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:layout_margin="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/hotel_button_text_main_plate"/>
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/restoran_button_main_plate"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:layout_margin="5dp"
+            android:layout_weight="1"
+
             android:background="@drawable/bodrum_launcher"
 
             >
             <TextView
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:text="шось там"/>
+                android:textStyle="bold"
+                android:textColor="#bade89"
+                android:layout_margin="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/restoran_button_text_main_plate"/>
         </RelativeLayout>
 
 

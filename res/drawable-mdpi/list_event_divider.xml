@@ -9,12 +9,4 @@
         android:dashWidth="2dp"
         android:dashGap="2dp"
         />
-
-
-    <!--<gradient-->
-        <!--android:startColor="#000"-->
-        <!--android:centerColor="#fff"-->
-        <!--android:endColor="#000"-->
-        <!--android:angle="270"-->
-        <!--/>-->
 </shape>

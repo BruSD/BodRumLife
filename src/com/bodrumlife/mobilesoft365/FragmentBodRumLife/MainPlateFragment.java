@@ -21,6 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.bodrumlife.mobilesoft365.AsyncTask.AsyncTaskEnumeration;
 import com.bodrumlife.mobilesoft365.DataBodRumLife.DataStorage;
 import com.bodrumlife.mobilesoft365.MyActivity;
 import com.bodrumlife.mobilesoft365.R;
@@ -48,6 +49,7 @@ public class MainPlateFragment extends Fragment {
     private ImageView imageLogoBodRum;
     private int totalDistruction;
     private ViewGroup header;
+    private RelativeLayout shopingButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,7 +60,11 @@ public class MainPlateFragment extends Fragment {
         imageLogoBodRum = (ImageView)v.findViewById(R.id.bodrum_logo_image_main_plate_layout);
         
         imageLogoBodRum.setOnClickListener(new startAboutBodRumFragment() );
+
         wheareToGoRL = (RelativeLayout)v.findViewById(R.id.wheare_to_go_main_plate_fragmet);
+
+        shopingButton = (RelativeLayout)v.findViewById(R.id.shoping_button_main_plate);
+        shopingButton.setOnClickListener(new startListShopingFragment());
         totalDistruction = (parentActivity.getWindowManager().getDefaultDisplay().getHeight()/12);
         return v;
     }
@@ -203,6 +209,14 @@ public class MainPlateFragment extends Fragment {
         @Override
         public void onClick(View view) {
             ((MyActivity)parentActivity).comitAboutBodRum();
+        }
+    }
+
+    class startListShopingFragment implements View.OnClickListener{
+
+        @Override
+        public void onClick(View view) {
+            ((MyActivity)parentActivity).comitListBodRumFragment(AsyncTaskEnumeration.TypeOfAsyncTask.Shopping.getValue());
         }
     }
 }

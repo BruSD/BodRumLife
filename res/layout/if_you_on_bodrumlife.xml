@@ -54,7 +54,7 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_weight="2"
-                android:src="@drawable/if_you_on_bodrum_red_line"
+                android:src="@drawable/bodrum_launcher"
                 android:paddingTop="10dp"
                 android:paddingBottom="30dp"/>
     </LinearLayout>
