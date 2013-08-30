@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="@drawable/splash_bg"
 
     >
     <LinearLayout
@@ -30,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/red_head_text_splash"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#ff00"
+                android:textColor="#fb0707"
                 android:textStyle="bold"
                 />
 
@@ -48,6 +49,7 @@
         android:id="@+id/bottum_text_splash_screen"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:textColor="#ffffff"
         android:text="@string/bottum_text_splash"
         android:gravity="center"
         android:layout_marginBottom="50dp"

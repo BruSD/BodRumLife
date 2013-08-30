@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.method.CharacterPickerDialog;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
@@ -44,6 +46,9 @@ public class MainPlateFragment extends Fragment {
     private static int listHigth;
     private View v;
     private ImageView imageLogoBodRum;
+    private int totalDistruction;
+    private ViewGroup header;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -54,7 +59,7 @@ public class MainPlateFragment extends Fragment {
         
         imageLogoBodRum.setOnClickListener(new startAboutBodRumFragment() );
         wheareToGoRL = (RelativeLayout)v.findViewById(R.id.wheare_to_go_main_plate_fragmet);
-
+        totalDistruction = (parentActivity.getWindowManager().getDefaultDisplay().getHeight()/12);
         return v;
     }
 
@@ -62,12 +67,26 @@ public class MainPlateFragment extends Fragment {
     public void onStart() {
         super.onStart();
         listHigth = v.getMeasuredHeight() - wheareToGoRL.getHeight();
+
+        header = (ViewGroup)LayoutInflater.from(getActivity()).inflate(R.layout.head_list_of_events, listOfEvents, false);
+        ViewGroup.LayoutParams params = header.getLayoutParams();
+        params.height = totalDistruction+4;
+        header.setLayoutParams(params);
+        header.requestLayout();
+
+        if(listOfEvents.getHeaderViewsCount() == 0){
+            listOfEvents.addHeaderView(header, null, false);
+        }
+
+
         EventAdapter adapter = new EventAdapter(parentActivity,
                 createShortEventList(),
                 R.layout.iteme_for_event_main_plate_list,
                 new String[]{"Name","Details"},
                 new int[]{R.id.title_of_event, R.id.details_of_event } );
         listOfEvents.setAdapter(adapter);
+
+
     }
     private List<Map<String, ?>> createShortEventList(){
         List<Map<String, ?>> items = new ArrayList<Map<String, ?>>();
@@ -147,9 +166,10 @@ public class MainPlateFragment extends Fragment {
                 LayoutInflater li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = li.inflate(resource, parent, false);
                 ViewGroup.LayoutParams params = convertView.getLayoutParams();
-                params.height = listHigth/5;
+                params.height = totalDistruction;
 
-                convertView.setLayoutParams(params);
+
+
 
                 holder = new ViewHolder();
 
@@ -160,38 +180,22 @@ public class MainPlateFragment extends Fragment {
                 holder.descriptionOfEvent.setText(data.get(position).get("Details").toString());
                 
                 holder.imageOfEvent = (ImageView)convertView.findViewById(R.id.image_of_evante);
-                
-                String url = "http://www.nereyegidilir.com/Events/gallery/image/" + data.get(position).get("Image").toString();
-                Bitmap bmp = getImageFromWeb(url);
-                if( bmp != null){
 
-                    //holder.imageOfEvent.setImageBitmap(bmp);
-                    //holder.imageOfEvent.setMaxHeight(listHigth/5);
-                }
+                holder.imageOfEvent.setImageBitmap((Bitmap) data.get(position).get("Image"));
 
+
+                convertView.setLayoutParams(params);
+                convertView.requestLayout();
 
                 return convertView;
             }
 
         
-        private Bitmap getImageFromWeb(String imageURl){
-            URL url = null;
-            try {
-                url = new URL(imageURl);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
 
-            Bitmap bmp = null;
-//            try {
-//               // bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-            return bmp;
-        }
 
     }
+
+
     
     
     class startAboutBodRumFragment implements View.OnClickListener{

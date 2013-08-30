@@ -6,6 +6,9 @@ package com.bodrumlife.mobilesoft365.AsyncTask;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 import android.os.AsyncTask;
 
 import com.bodrumlife.mobilesoft365.DataBodRumLife.DataStorage;
@@ -87,8 +90,18 @@ public class AsyncTaskFourItems extends AsyncTask<String, Void, List<HashMap<Str
                     item.put("Id",id);
                     item.put("Name", name);
                     item.put("Details",details);
-                    item.put("Image",image);
+
+                    if(i < 4){
+                        String urlImage = "http://www.nereyegidilir.com/Events/gallery/image/" + image;
+                        item.put("Image",getImageFromWeb(urlImage));
+                    }else {
+                        item.put("Image",image);
+                    }
+
+
                     list1.add(item);
+
+
                 }
             }
         }
@@ -102,6 +115,7 @@ public class AsyncTaskFourItems extends AsyncTask<String, Void, List<HashMap<Str
 
          return list1;
     }
+
 
     @Override
     protected void onPostExecute(List<HashMap<String, ?>> hashMaps) {
@@ -121,5 +135,48 @@ public class AsyncTaskFourItems extends AsyncTask<String, Void, List<HashMap<Str
     private void saveListInDataStoreg(List<HashMap<String, ?>> listToDataStoreg){
 
         DataStorage.setEventList(listToDataStoreg);
+    }
+
+    private Bitmap getImageFromWeb(String imageURl){
+        URL url = null;
+        try {
+            url = new URL(imageURl);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        Bitmap bmp = null;
+          try {
+
+
+              bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+
+
+          } catch (IOException e) {
+                e.printStackTrace();
+           }
+        return bmp;
+    }
+
+    public static int calculateInSampleSize(
+            BitmapFactory.Options options, int reqWidth, int reqHeight) {
+        // Raw height and width of image
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 1;
+
+        if (height > reqHeight || width > reqWidth) {
+
+            // Calculate ratios of height and width to requested height and width
+            final int heightRatio = Math.round((float) height / (float) reqHeight);
+            final int widthRatio = Math.round((float) width / (float) reqWidth);
+
+            // Choose the smallest ratio as inSampleSize value, this will guarantee
+            // a final image with both dimensions larger than or equal to the
+            // requested height and width.
+            inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
+        }
+
+        return inSampleSize;
     }
 }
