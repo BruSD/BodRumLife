@@ -21,6 +21,7 @@
                     android:layout_width="match_parent"
                     android:layout_weight="4"
                     android:src="@drawable/bodrum_launcher"/>
+
                 <RelativeLayout
                     android:id="@+id/wheare_to_go_main_plate_fragmet"
                     android:layout_height="match_parent"

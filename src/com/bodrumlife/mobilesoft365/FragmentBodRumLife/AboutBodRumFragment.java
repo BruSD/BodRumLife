@@ -7,6 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 import com.bodrumlife.mobilesoft365.R;
@@ -22,8 +25,16 @@ public class AboutBodRumFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         parentActivity = getActivity();
-        v = LayoutInflater.from(parentActivity).inflate(R.layout.fragment_about_bod_rum, null);
+        v = LayoutInflater.from(parentActivity).inflate(R.layout.if_you_on_bodrumlife, null);
+        LinearLayout ln = (LinearLayout)v.findViewById(R.id.liner_opacity);
+        AlphaAnimation alpha = new AlphaAnimation(0.5F, 0.5F);
+        alpha.setDuration(0);
+        alpha.setFillAfter(true);
+        ln.startAnimation(alpha);
 
+//        int opacity = 127;
+//        ln.setAlpha(opacity);
         return v;
-    }
+           }
+
 }

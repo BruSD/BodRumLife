@@ -10,6 +10,9 @@ import android.view.Window;
 import com.bodrumlife.mobilesoft365.FragmentBodRumLife.AboutBodRumFragment;
 import com.bodrumlife.mobilesoft365.FragmentBodRumLife.MainPlateFragment;
 import com.bodrumlife.mobilesoft365.FragmentBodRumLife.SplashScreenFragment;
+import com.bodrumlife.mobilesoft365.AsyncTask.AsyncTaskDetails;
+import com.bodrumlife.mobilesoft365.AsyncTask.AsyncTaskEnumeration;
+import com.bodrumlife.mobilesoft365.AsyncTask.AsyncTaskForTwoItems;
 
 
 public class MyActivity extends FragmentActivity {
@@ -34,7 +37,6 @@ public class MyActivity extends FragmentActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
 
     }
 
