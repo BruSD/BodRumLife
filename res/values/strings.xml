@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">BodrumLife</string>
 
-
 <!-- Splash Screen Content-->
     <string name="head_text_splash">budrum</string>
 
@@ -22,11 +21,11 @@
 
 <!-- Main Plate Content-->
     <string name="text_about"><b>Bodrumlife</b> \nuygulamasının yeni versiyonuna hoşgeldiniz. Bodrum şimdi avucunuzun içinde... Güncel etkinlikler, konserler, öneriler, oteller, restoranlar, gece kulüpleri ve Bodrum’un birbirinden güzel  beldelerine bu uygulamadan kolaylıkla ulaşabileceksiniz... Size yalnızca düğmelere ve oklara tıklamak kalıyor.</string>
-    <string name="text_first_about"><b>Bodrumlife</b>  geniş kapsamlı bir projedir... 25 yıldır\r\nBodrum’un yayın hayatında önemli bir yeri olan\n<b>Bodrumlife</b> Publications’ın bir yayınıdır. 3 ayda bir çıkan dergimiz <b>Bodrumlife</b>, Yılda iki kez çıkan\n<b>“Nereye Gidilir”</b> dergimiz ve 5 internet sitesi bu uygulamayı güncel olarak destekler. <b>\nwww.nereyegidilir.com, \nwww.bodrum-museum.com, \nwww.bodrumlife.com ve www.bodrumlife.com.tr, \nwww.bodrum-hotels.com</b> \nsitelerinden alınan güncel bilgilerle her zamangüncel ve en yeni bilgileri size aktarır...</string>
-    <string name="text_second_about">Sayfalardaki içerikler, otel, restoran, gece kulübü gibi mekânların tanıtımı tamamen özgün yazılardan, yorumlardan ve kurumumuzun görüşlerinden oluşur... \nBire bir, yüzyüze yapılan görüşmeleri yansıtır...</string>
-    <string name="text_third_about">Yapımcı:<b>Bodrumlife Publications </b> Mermedya Limited Şirketi - Bodrum</string>
-    <string name="text_forth_about">İletişim +90 252 3484602 +90 532 2911812 \n<b>www.bodrumlife.com</b> \nbodrumlife@bodrumlife.com</string>
-    <string name="text_fifth_about">Grafik Tasarım - Uygulama : <b>Necip Damar</b> \nEditor-yazılar: <b>İkbal Çiğdem Damar</b> \nKatılımcılar: Konular altında belirtilmiştir \nFotoğraflar: <b>Ömer Doğan, Gökhan Gönenç,\nNecip Damar</b></string>
-    <string name="text_sixth_about"><b>Bodrum\'a Dair \nNe Varsa</b></string>
-    <string name="text_seventh_about">“ Wish you were here” Aramızdan ayrılan arkadaşımız ve Bodrumlife’ın isim babası Tony Marciniec’in anısına” “Burada olsaydın herşey daha mükemmel olurdu...”</string>
+    <string name="right_text_if_you_on_bodrumlife"><b>Bodrumlife</b>  geniş kapsamlı bir projedir... 25 yıldır\r\nBodrum’un yayın hayatında önemli bir yeri olan\n<b>Bodrumlife</b> Publications’ın bir yayınıdır. 3 ayda bir çıkan dergimiz <b>Bodrumlife</b>, Yılda iki kez çıkan\n<b>“Nereye Gidilir”</b> dergimiz ve 5 internet sitesi bu uygulamayı güncel olarak destekler. <b>\nwww.nereyegidilir.com, \nwww.bodrum-museum.com, \nwww.bodrumlife.com ve www.bodrumlife.com.tr, \nwww.bodrum-hotels.com</b> \nsitelerinden alınan güncel bilgilerle her zamangüncel ve en yeni bilgileri size aktarır... \n\nSayfalardaki içerikler, otel, restoran, gece kulübü gibi mekânların tanıtımı tamamen özgün yazılardan, yorumlardan ve kurumumuzun görüşlerinden oluşur... \nBire bir, yüzyüze yapılan görüşmeleri yansıtır... \n\nYapımcı:<b>Bodrumlife Publications </b> Mermedya Limited Şirketi - Bodrum\n\nİletişim +90 252 3484602 +90 532 2911812 \n<b>www.bodrumlife.com</b> \nbodrumlife@bodrumlife.com \n\nGrafik Tasarım - Uygulama : <b>Necip Damar</b> \nEditor-yazılar: <b>İkbal Çiğdem Damar</b> \nKatılımcılar: Konular altında belirtilmiştir \nFotoğraflar: <b>Ömer Doğan, Gökhan Gönenç,\nNecip Damar </b></string>
+    <string name="text_second_about"></string>
+    <string name="text_third_about"></string>
+    <string name="text_forth_about"></string>
+    <string name="text_fifth_about"></string>
+    <string name="text_sixth_about"><b>Bodrum\'a Dair \r\nNe Varsa</b></string>
+    <string name="right_text_about_post_scriptum">“ Wish you were here” Aramızdan ayrılan arkadaşımız ve Bodrumlife’ın isim babası Tony Marciniec’in anısına” “Burada olsaydın herşey daha mükemmel olurdu...”</string>
 </resources>

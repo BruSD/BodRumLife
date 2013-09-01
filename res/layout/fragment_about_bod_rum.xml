@@ -1,7 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/about_background"
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+        >
 
-</LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+            >
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="5"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="50dp"
+                >
+
+            <ImageView
+                    android:id="@+id/if_you_on_bodrumlife_ico"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/logo_bodrum_life"
+                    android:maxWidth="90dp"
+                    style="@style/EmptyImage"/>
+            <TextView
+                    android:id="@+id/left_text_about_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    android:gravity="center"
+                    android:textColor="@color/color_black"
+                    android:text="@string/text_sixth_about"
+                    />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/left_text_about"
+                    android:textSize="10dp"
+
+                    android:text="@string/text_about"
+                    android:textColor="@color/color_black"
+                    />
+        </LinearLayout>
+
+
+        <ImageView
+                android:id="@+id/if_you_on_bodrumlife_red_line"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_weight="7"
+                android:src="@drawable/about_bodrum_red_line"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"/>
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/liner_opacity"
+                android:layout_weight="3"
+                android:background="@color/color_white"
+                android:layout_marginRight="4dp"
+                android:layout_marginBottom="15dp"
+                >
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/right_text_if_you_on_bodrumlife"
+                    android:text="@string/right_text_if_you_on_bodrumlife"
+                    android:textColor="@color/color_black"
+                    android:layout_weight="3"
+
+                    android:textSize="10dp"
+                    android:paddingTop="15dp"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/right_text_about_post_scriptum"
+                    android:layout_weight="10"
+                    android:textSize="8dp"
+                    android:gravity="center|right"
+                    android:text="@string/right_text_about_post_scriptum"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/color_black"
+                    />
+        </LinearLayout>
+
+    </LinearLayout>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/about_compass"
+            android:layout_alignParentBottom="true"
+            android:gravity="left"
+            android:maxWidth="130dp"
+            android:maxHeight="130dp"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentStart="false"
+            android:layout_centerVertical="true"/>
+</RelativeLayout>
