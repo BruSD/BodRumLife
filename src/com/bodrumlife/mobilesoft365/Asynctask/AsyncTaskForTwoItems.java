@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 
 import com.bodrumlife.mobilesoft365.DataBodRumLife.DataStorage;
 import com.bodrumlife.mobilesoft365.MyActivity;
+import com.bodrumlife.mobilesoft365.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,9 +40,10 @@ public class AsyncTaskForTwoItems extends AsyncTask<String, Void, List<HashMap<S
     {
         super.onPreExecute();
         dialog = new ProgressDialog(activity);
-        dialog.setMessage("Loading list");
         dialog.show();
+        dialog.setContentView(R.layout.loader_layout);
     }
+
 
     @Override
     protected List <HashMap<String,?>>  doInBackground(String... params) {
@@ -98,9 +100,5 @@ public class AsyncTaskForTwoItems extends AsyncTask<String, Void, List<HashMap<S
         super.onPostExecute(hashMaps);
         if(dialog!=null && dialog.isShowing())
             dialog.dismiss();
-
-
     }
-
-
 }

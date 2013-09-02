@@ -36,13 +36,17 @@ public class AsyncTaskDetails extends AsyncTask<String, Void, JSONObject> {
 
     public AsyncTaskDetails(Activity activity){
         this.activity = activity;
-    }
+           }
 
     @Override
     protected void onPreExecute()
     {
         super.onPreExecute();
+        dialog=new ProgressDialog(activity);
+        dialog.show();
+        dialog.setContentView(R.layout.loader_layout);
      }
+
     @Override
     protected JSONObject doInBackground(String... params) {
         URL url = null;
