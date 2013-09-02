@@ -5,33 +5,23 @@ package com.bodrumlife.mobilesoft365.FragmentBodRumLife;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.method.CharacterPickerDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import com.bodrumlife.mobilesoft365.AsyncTask.AsyncTaskEnumeration;
+import com.bodrumlife.mobilesoft365.AsyncTask.Enumeration_Bodrum;
 import com.bodrumlife.mobilesoft365.DataBodRumLife.DataStorage;
 import com.bodrumlife.mobilesoft365.MyActivity;
 import com.bodrumlife.mobilesoft365.R;
-import com.google.android.gms.plus.PlusOneButton;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +37,7 @@ public class MainPlateFragment extends Fragment {
     private static int listHigth;
     private View v;
     private ImageView imageLogoBodRum;
+    private RelativeLayout imageConcert;
     private int totalDistruction;
     private ViewGroup header;
     private RelativeLayout shopingButton;
@@ -58,7 +49,8 @@ public class MainPlateFragment extends Fragment {
         v = LayoutInflater.from(parentActivity).inflate(R.layout.fragment_main_plate_layout, null);
         listOfEvents = (ListView) v.findViewById(R.id.list_bodrum_event);
         imageLogoBodRum = (ImageView)v.findViewById(R.id.bodrum_logo_image_main_plate_layout);
-        
+        imageConcert=(RelativeLayout)v.findViewById(R.id.concert_button_main_plate);
+        imageConcert.setOnClickListener(new startConcertFragment());
         imageLogoBodRum.setOnClickListener(new startAboutBodRumFragment() );
 
         wheareToGoRL = (RelativeLayout)v.findViewById(R.id.wheare_to_go_main_plate_fragmet);
@@ -216,7 +208,14 @@ public class MainPlateFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
-            ((MyActivity)parentActivity).comitListBodRumFragment(AsyncTaskEnumeration.TypeOfAsyncTask.Shopping.getValue());
+            ((MyActivity)parentActivity).comitListBodRumFragment(Enumeration_Bodrum.TypeOfAsyncTask.Shopping.getValue());
+        }
+    }
+    class startConcertFragment implements View.OnClickListener{
+
+        @Override
+        public void onClick(View view) {
+            ((MyActivity)parentActivity).comitConcert();
         }
     }
 }

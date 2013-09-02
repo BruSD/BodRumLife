@@ -3,7 +3,7 @@ package com.bodrumlife.mobilesoft365.AsyncTask;
 /**
  * Created by Sofia on 8/28/13.
  */
-public class AsyncTaskEnumeration {
+public class Enumeration_Bodrum {
     public static enum TypeOfAsyncTask
     {
         Hotels(73),
@@ -16,10 +16,10 @@ public class AsyncTaskEnumeration {
         Gozumuze(88);
 
         private int mValue;
-
         TypeOfAsyncTask(int value) {
             this.mValue=value;
         }
+
         public int getValue() {
             return mValue;
         }

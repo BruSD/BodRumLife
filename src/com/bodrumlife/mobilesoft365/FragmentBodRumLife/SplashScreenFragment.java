@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.bodrumlife.mobilesoft365.AsyncTask.AsyncTaskEnumeration;
+import com.bodrumlife.mobilesoft365.AsyncTask.Enumeration_Bodrum;
 import com.bodrumlife.mobilesoft365.AsyncTask.AsyncTaskFourItems;
 import com.bodrumlife.mobilesoft365.DataBodRumLife.DataStorage;
 import com.bodrumlife.mobilesoft365.R;
@@ -52,7 +52,7 @@ public class SplashScreenFragment extends Fragment {
             dialog.show();
         }
         else {
-        new AsyncTaskFourItems(getActivity()).execute(String.valueOf(AsyncTaskEnumeration.TypeOfAsyncTask.Events.getValue()));
+        new AsyncTaskFourItems(getActivity()).execute(String.valueOf(Enumeration_Bodrum.TypeOfAsyncTask.Events.getValue()));
        }
     }
 }
