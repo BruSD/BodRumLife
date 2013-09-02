@@ -4,4 +4,4 @@
                  android:drawable="@drawable/circle"
                  android:pivotX="50%"
                  android:pivotY="50%"
-                 />
+                    />
