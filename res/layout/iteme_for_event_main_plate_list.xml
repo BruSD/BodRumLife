@@ -4,7 +4,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#a4cfee">
+    android:background="@color/color_blue">
 
 
     <ImageView
@@ -24,17 +24,15 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:maxLines="1"
-            android:textColor="#000000"
+            android:textColor="@color/color_black"
             android:textStyle="bold"
-
            />
         <TextView
             android:id="@+id/details_of_event"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:maxLines="2"
-            android:textColor="#000000"/>
-
+            android:textColor="@color/color_black"/>
     </LinearLayout>
 
 

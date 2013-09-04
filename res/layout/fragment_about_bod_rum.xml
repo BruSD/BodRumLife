@@ -57,7 +57,7 @@
                 android:layout_weight="7"
                 android:src="@drawable/about_bodrum_red_line"
                 android:paddingTop="15dp"
-                android:paddingBottom="15dp"/>
+                android:paddingBottom="25dp"/>
 
 
         <LinearLayout

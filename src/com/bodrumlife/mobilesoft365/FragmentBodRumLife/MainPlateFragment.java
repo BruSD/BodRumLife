@@ -3,6 +3,7 @@ package com.bodrumlife.mobilesoft365.FragmentBodRumLife;
 
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -10,12 +11,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.bodrumlife.mobilesoft365.AsyncTask.AsyncTaskFourItems;
 import com.bodrumlife.mobilesoft365.AsyncTask.Enumeration_Bodrum;
 import com.bodrumlife.mobilesoft365.DataBodRumLife.DataStorage;
 import com.bodrumlife.mobilesoft365.MyActivity;
@@ -26,7 +29,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by BruSD on 28.08.13.
+ * Contains fragment of main page with layout fragment_main_plate_layout
+ * @author  BruSD
+ * @version 1.0 28.08.13.
  */
 
 public class MainPlateFragment extends Fragment {
@@ -41,6 +46,12 @@ public class MainPlateFragment extends Fragment {
     private int totalDistruction;
     private ViewGroup header;
     private RelativeLayout shopingButton;
+
+    /**
+     * Creates and returns the view fragment_main_plate_layout
+     * @param inflater the LayoutInflater object that used to inflate LayoutInflater with fragment_main_plate_layout
+     * @return return the View for the fragment's
+     */
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,6 +72,11 @@ public class MainPlateFragment extends Fragment {
         return v;
     }
 
+    /**
+     * Called when the Fragment is visible to the user. Runs adapter EventAdapter
+     * LayoutInflater object that used to inflate LayoutInflater with head_list_of_events and listOfEvents, get head of list_bodrum_event
+     */
+
     @Override
     public void onStart() {
         super.onStart();
@@ -76,16 +92,18 @@ public class MainPlateFragment extends Fragment {
             listOfEvents.addHeaderView(header, null, false);
         }
 
-
         EventAdapter adapter = new EventAdapter(parentActivity,
                 createShortEventList(),
                 R.layout.iteme_for_event_main_plate_list,
                 new String[]{"Name","Details"},
                 new int[]{R.id.title_of_event, R.id.details_of_event } );
         listOfEvents.setAdapter(adapter);
-
-
     }
+
+    /**
+     * Created list of HashMaps consist of 4 items
+     * @return list
+     */
     private List<Map<String, ?>> createShortEventList(){
         List<Map<String, ?>> items = new ArrayList<Map<String, ?>>();
 
@@ -100,12 +118,20 @@ public class MainPlateFragment extends Fragment {
         return items;
     }
 
+    /**
+     * Created adapter EventAdapter.
+     */
 
     private class EventAdapter extends SimpleAdapter {
         private Context context;
         private List<? extends Map<String, ?>> data;
         private int resource;
 
+        /**
+         * Creates the object-connector linked list with createShortEventList
+         * @param context
+         * @param data list of Maps
+          */
 
         public EventAdapter(Context context, List<? extends Map<String, ?>> data, int resource, String[] from, int[] to) {
             super(context, data, resource, from, to);
@@ -187,35 +213,59 @@ public class MainPlateFragment extends Fragment {
 
                 return convertView;
             }
-
-        
-
-
     }
 
+    /**
+     * Runs AsyncTask for Concerts and runs startAboutBodRumFragment listen on click
+     */
 
-    
-    
+
     class startAboutBodRumFragment implements View.OnClickListener{
 
         @Override
         public void onClick(View view) {
-            ((MyActivity)parentActivity).comitAboutBodRum();
+            if (parentActivity != null && parentActivity instanceof MyActivity)
+                ((MyActivity)parentActivity).comitAboutBodRum();
+            if(!DataStorage.isOnline(parentActivity)){
+                final Dialog dialog = new Dialog(parentActivity);
+                dialog.setContentView(R.layout.dialog_internet_connection);
+                dialog.setTitle("Internet connection");
+                TextView text = (TextView) dialog.findViewById(R.id.dialogText);
+                text.setText("Turn on your Internet connection");
+                Button dialogButton = (Button) dialog.findViewById(R.id.buttonDialog);
+                dialogButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+            else {
+
+                new AsyncTaskFourItems(getActivity()).execute(String.valueOf(Enumeration_Bodrum.TypeOfAsyncTask.Concerts.getValue()));
+
+            }
         }
     }
 
+    /**
+     *
+     */
     class startListShopingFragment implements View.OnClickListener{
 
         @Override
         public void onClick(View view) {
-            ((MyActivity)parentActivity).comitListBodRumFragment(Enumeration_Bodrum.TypeOfAsyncTask.Shopping.getValue());
+            if (parentActivity != null && parentActivity instanceof MyActivity)
+                ((MyActivity)parentActivity).comitListBodRumFragment(Enumeration_Bodrum.TypeOfAsyncTask.Shopping.getValue());
         }
     }
     class startConcertFragment implements View.OnClickListener{
 
         @Override
         public void onClick(View view) {
-            ((MyActivity)parentActivity).comitConcert();
+            if (parentActivity != null && parentActivity instanceof MyActivity)
+                ((MyActivity)parentActivity).comitConcert();
         }
     }
 }

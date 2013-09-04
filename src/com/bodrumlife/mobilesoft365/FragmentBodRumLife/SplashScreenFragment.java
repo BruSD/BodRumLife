@@ -19,11 +19,19 @@ import com.bodrumlife.mobilesoft365.R;
 
 
 /**
- * Created by BruSD on 28.08.13.
+ * Runs AsyncTask events, contain layout for SplashScreenFragment
+ * @author  BruSD
+ * @version 1.0 28.08.13
  */
-public class SplashScreenFragment extends Fragment {
-    private Activity parentActivity = null;
+    public class SplashScreenFragment extends Fragment {
+        private Activity parentActivity = null;
 
+
+    /**
+     * Creates and returns the view fragment_splash_screen_layout from MyActivity
+     * @param inflater the LayoutInflater object that used to inflate LayoutInflater with fragment_splash_screen_layout
+     * @return return the View for the fragment's
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -33,6 +41,9 @@ public class SplashScreenFragment extends Fragment {
         return v;
     }
 
+    /**
+     * Called when the Fragment is visible to the user. Runs AsyncTaskFourItems - list of events and check Internet connection
+     */
     @Override
     public void onStart() {
         super.onStart();

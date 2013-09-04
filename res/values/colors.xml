@@ -2,4 +2,8 @@
 <resources>
     <color name="color_black">#000000</color>
     <color name="color_white">#70ffffff</color>
+    <color name="color_white_white">#ffffff</color>
+    <color name="color_blue">#a4cfee</color>
+    <drawable name="color_transparent">#00000000</drawable>
+
 </resources>

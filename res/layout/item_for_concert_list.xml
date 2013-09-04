@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/white_plate_concertt"
+        >
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView_concert"
+            android:layout_margin="2dp"
+            android:layout_weight="2"
+           />
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/title_concert"
+                android:layout_weight="1"
+                android:textColor="@color/color_black"
+                android:gravity="center"
+                android:textStyle="bold"/>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/text_concert"
+                android:layout_weight="1"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/color_black"
+                />
+</LinearLayout>
+</LinearLayout>
